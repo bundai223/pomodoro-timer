@@ -2,6 +2,7 @@
   "name": "pomodoro-timer",
   "version": "0.1.0",
   "private": true,
+  "main": "src/electron-starter.js",
   "dependencies": {
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
@@ -11,6 +12,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron": "electron .",
+    "dev": "nf start -p 3000"
+  },
+  "devDependencies": {
+    "electron": "^1.8.4",
+    "electron-packager": "^12.0.1",
+    "foreman": "^2.0.0"
   }
 }
