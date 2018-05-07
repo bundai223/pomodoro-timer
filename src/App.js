@@ -1,7 +1,20 @@
 import React, { Component } from 'react';
+import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  render() {
+    return (
+      <div>
+      <Clock />
+      <Clock />
+      </div>
+    )
+  }
+}
+
+
+class Clock extends Component {
   constructor(props) {
     super(props);
     this.state = {date: new Date()}
