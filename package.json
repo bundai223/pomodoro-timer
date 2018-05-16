@@ -17,8 +17,11 @@
     "dev": "nf start -p 3000"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.3",
     "electron": "^1.8.4",
     "electron-packager": "^12.0.1",
+    "eslint": "^4.19.1",
+    "eslint-plugin-react": "^7.8.2",
     "foreman": "^2.0.0"
   }
 }
