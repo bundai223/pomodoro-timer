@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ipcRenderer from 'electron';
+
 var Datastore = require('nedb');
 
 var status = {
