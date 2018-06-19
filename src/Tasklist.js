@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ipcRenderer from 'electron';
 
-var Datastore = require('nedb');
+var Datastore = ''; //require('nedb');
 
 var status = {
   idle: 0,  // 未実行
