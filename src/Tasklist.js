@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import ipcRenderer from 'electron';
 
-var Datastore = ''; //require('nedb');
-
 var status = {
   idle: 0,  // 未実行
   doing: 1, // 実行中
@@ -13,32 +11,21 @@ class Tasklist extends Component {
   constructor(props) {
     super(props);
 
-    // Database
-    this.db = new Datastore({
-      filename: './db/tasks.db',
-      autoload: true,
-    });
-
     this.createDummyData();
 
     var tasks = [];
-    this.db.find({}, function(err, docs) {
-      tasks = docs.map((item) => {
-        return new Task(
-          docs.name,
-          docs.description,
-          docs.status,
-        );
-      });
-    });
+    //this.db.find({}, function(err, docs) {
+    //  tasks = docs.map((item) => {
+    //    return new Task(
+    //      docs.name,
+    //      docs.description,
+    //      docs.status,
+    //    );
+    //  });
+    //});
 
     console.log("aaaaa : " + tasks);
     this.state = {tasks: tasks};
-  }
-
-  createDummyData() {
-    this.db.insert({ name: 'piyo', description: 'piyo no memo', status: status.idle }, function(err, newDoc) {});
-    this.db.insert({ name: 'second', description: 'second no memo', status: status.done }, function(err, newDoc) {});
   }
 
   componentDidMount() {
@@ -80,8 +67,6 @@ class Tasklist extends Component {
       description: task.description,
       status:      task.status,
     };
-    this.db.insert(doc, function(err, newDoc) {
-    });
   }
 }
 

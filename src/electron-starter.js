@@ -9,6 +9,14 @@ const ipcMain = electron.ipcMain;
 const path = require('path');
 const url = require('url');
 
+var Datastore = require('nedb');
+
+var status = {
+  idle: 0,  // 未実行
+  doing: 1, // 実行中
+  done: 2,  // 完了
+};
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
@@ -30,6 +38,17 @@ function createWindow() {
 
     // Open the DevTools.
     mainWindow.webContents.openDevTools();
+
+    // Database
+    db = new Datastore({
+      filename: './db/tasks.db',
+      autoload: true,
+    });
+
+
+    db.insert({ name: 'piyo', description: 'piyo no memo', status: status.idle }, function(err, newDoc) {});
+    db.insert({ name: 'second', description: 'second no memo', status: status.done }, function(err, newDoc) {});
+
 
     // Emitted when the window is closed.
     mainWindow.on('closed', function () {
